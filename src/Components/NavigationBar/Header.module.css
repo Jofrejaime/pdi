@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  font-family: var(--type-code1);
+  box-shadow: 0 1px 3px rgba(0 0 0 /15%);
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+}
+.bg_w{
+  background-color: #fff;
+  margin-bottom: 3rem;
+}
+@media (max-width: 45rem) {
+  .header {
+    top: 0;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    justify-content: space-between;
+ 
+ padding: 1rem 1.5rem;
+  }
+
+  .logo {
+    order: -1;
+  }
+
+  .logo svg>image {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: calc(794px*2);
+    height: calc(394px*1.8);
+  }
+
+  .logo svg {
+    height: calc(45px);
+  }
+}
+
+.link:after {
+  content: '';
+  display: block;
+  height: .225rem;
+  width: 0;
+  background-color: #0046CC;
+  margin-top: .250rem;
+  transition: all .6s;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.link_a {
+  display: flex;
+  align-items: center;
+  gap: .125rem;
+  color: #333333;
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: .6s;
+}
+
+.link_a:hover, .link_a:focus {
+  color: #0046CC;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile {
+  background-color: #333;
+  display: inline-block;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .6s;
+}
+.profile picture{
+  min-width: 28px;
+  height: 28px;
+  
+}
+.profile picture img{
+  border-radius: 50%;
+}
+.profile:hover, .profile:focus{
+  outline: none;
+  box-shadow: 0 0 0 3px #99afdd;
+}
+
+.mobileButton {
+  background: #fff;
+  border-radius: 0.2rem;
+  color: #333;
+  height: 40px;
+  width: 40px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.mobileButton::after {
+  content: '';
+  display: block;
+  width: 1.2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  box-shadow: 0 6px currentColor, 0 -6px currentColor;
+  transition: 0.3s;
+}
+
+.mobileButton:focus,
+.mobileButton:hover,
+.mobileButtonActive {
+  outline: none;
+  color: #333;
+  background: #fff;
+  box-shadow: 0 0 0 3px #0046CC;
+  border-color: #333;
+}
+
+.mobileButtonActive::after {
+  transform: rotate(-90deg);
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 8px currentColor, 0 -8px currentColor;
+}
+
+.navMobile {
+  display: block;
+  align-items: center;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  padding: 0 1rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+  transform: translateX(-10px);
+  opacity: 0;
+  pointer-events: none;
+  margin-right: 1rem;
+}
+
+.navMobileActive {
+  transition: .3s;
+  transform: initial;
+  opacity: 1;
+  z-index: 100;
+  pointer-events: initial;
+}
+
+.navMobile a,
+.navMobile button {
+  border-radius: 0;
+  display: block;
+  align-items: center;
+  background: none;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #99afdd;
+  padding: .5rem 0;
+}
+
+.navMobile a:hover svg>*,
+.navMobile button:hover svg>* {
+  fill: #0046CC;
+}
+
+.navMobile svg {
+  margin-right: .5rem;
+}
+
+.navMobile .profile,
+.navMobile button:focus,
+.navMobile button:hover {
+  border-bottom: none;
+}
+
+.notification {
+  position: relative;
+
+}
+
+.notification_show {
+  width: max-content;
+  position: absolute;
+  left: 50%;
+  opacity: .25;
+  transform: translateX(-50%) rotateX(-90deg);
+  top: calc(100% + 10px);
+  transform-origin: top center;
+  transition: all .6s 225ms ease-in;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.notification_show::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -1rem;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: #fff;
+  
+
+}
+
+.notification:has(:hover) .notification_show {
+  opacity: 1;
+  transform: translateX(-50%) rotateX(0);
+  transition-timing-function: ease-out;
+}

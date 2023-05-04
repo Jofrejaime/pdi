@@ -1,38 +1,210 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,700;1,800&family=Source+Code+Pro:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #F8FAFE;
+  margin: 0;
+  color: #333;
+  --type-code1: 'JetBrains Mono', 'Cascadia Code', 'Anonymous Pro', Menlo, Monaco, 'Courier New', monospace;
+  --type-code2: 'Fira Sans', 'Fira Code', 'Source Code Pro', Consolas, source-code-pro, Menlo, Monaco, 'Courier New',
+    monospace;
+  --type-code3: 'Poppins','Source Code Pro', monospace;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+}
+body::-webkit-scrollbar {
+  width: 1rem;
+  border-radius: .5rem;
+  background-color: hsl(var(--hue), 8%, 66%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body::-webkit-scrollbar-thumb {
+  width: .6rem;
+  border-radius: .5rem;
+  background-color: hsl(var(--hue), 6%, 54%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  display: block;
+  font-size: 1rem;
+  font-family: var(--type-code2);
+  color: #333;
+}
+
+.habilities {
   display: flex;
-  flex-direction: column;
+  align-items:normal;
+  justify-content: center;
+  gap: 20px;
+overflow: auto;
+font-size:  clamp(1rem, 1.1rem + 1vw, 1.1rem);
+font-family: var(--type-code3);
+flex-wrap: wrap;
+}
+.description{
+  font-family: var(--type-code2);
+font-weight: 400;
+}
+.habilities div {
+  max-width: 300px;
+  background-color: #fff;
+  padding: 10px;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 10px;
+  color: #333;
+  border-radius: 4px;
+}
+.languages{
+flex-wrap: wrap;
+}
+ .images{
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+}
+.images img{
+  width: 34px;
+}
+.areas{
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+label {
+  font-family: var(--type-code1);
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  margin: 0 auto;
+  max-width: calc(100% - 3rem);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft .3s forwards;
+}
+
+.title {
+  font-family: var(--type-code1);
+  position: relative;
+  line-height: 1;
+  font-size: clamp(1rem, 1.5rem + 2vw, 2.4rem);
+  margin: 2rem 0;
+  width: max-content;
+}
+
+.titleProject {
+  font-family: var(--type-code1);
+  position: relative;
+  line-height: 1;
+  font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
+  margin: 2rem 0;
+  width: max-content;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.title::after,
+.titleProject::after {
+  content: '';
+  display: block;
+  background: #0046CC;
+  width: 50%;
+  height: .250rem;
+  position: absolute;
+  margin-top: .625rem;
+  left: -5px;
+  z-index: -1;
+}
+
+.titleProject::after {
+  background: #999;
+}
+
+.areas {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.areas p {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0 4px;
+  gap: 5px;
+}
+
+.areas p span {
+  display: flex;
+
+  font-weight: bold;
+  padding: 0 3px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.gitHubLink {
+  text-align: center;
+  font-size: clamp(.875rem, 1rem + 2vw, 1rem);
+  font-family: var(--type-code3);
+}
+
+.gitHubLink a {
+  color: #fff;
+  font-weight: 500;
+}
+
+.error {}
+
+@keyframes animeLeft {
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: initial;
   }
 }
